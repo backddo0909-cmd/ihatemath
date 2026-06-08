@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Rush: Advanced Professional Edition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game">
+
+  <div class="start-screen" id="startScreen">
+    <h1 class="main-title">⚡ Math Rush</h1>
+    <p class="sub-title">실전형 대기업 채용 수리 평가 모의고사</p>
+    
+    <div class="diff-container">
+      <div class="diff-group">
+        <button class="diff-btn active" id="btn-easy" onclick="setDifficulty('easy')">쉬움 (30초)</button>
+        <button class="diff-btn" id="btn-normal" onclick="setDifficulty('normal')">보통 (60초)</button>
+        <button class="diff-btn" id="btn-hard" onclick="setDifficulty('hard')">어려움 (5분)</button>
+      </div>
+      <div class="diff-desc" id="diffDesc">
+        ⏳ <strong>시간제한: 30초 | 문항 무제한</strong><br>
+        📌 기초 연산 감각을 끌어올리는 순발력 트레이닝 스테이지입니다.
+      </div>
+    </div>
+    
+    <button class="big-btn" onclick="startGame()">테스트 시작</button>
+  </div>
+
+  <div class="play-screen hidden" id="playScreen">
+    <div class="top">
+      <div class="timer">⏱ <span id="time">60</span>s</div>
+      
+      <div class="action-group">
+        <button class="skip-btn hidden" id="skipBtn" onclick="handleSkip()">➡️ 넘어가기 (-1.5점)</button>
+        <button class="giveup-btn" onclick="handleGiveUp()">🏳 포기</button>
+      </div>
+      
+      <div class="score">🏆 <span id="score">0</span> / 100</div>
+    </div>
+
+    <div class="progress-container hidden" id="progressContainer">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="question-box">
+      <div class="question" id="question">1 + 1</div>
+    </div>
+
+    <div class="choices" id="choices"></div>
+
+    <div class="bottom">
+      <div id="feedback"></div>
+    </div>
+  </div>
+
+  <div class="end-screen hidden" id="endScreen">
+    <div id="passStatusContainer"></div>
+    
+    <div class="stats-board">
+      <div class="stat-box">
+        <div class="stat-label">내 점수</div>
+        <div class="val" id="finalScore" style="color: #f59e0b;">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">합격 커트라인</div>
+        <div class="val" id="cutlineValue" style="color: #38bdf8;">68</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">풀이 정답률</div>
+        <div class="val" id="accuracy" style="color: #10b981;">0%</div>
+      </div>
+    </div>
+    
+    <h3 class="review-title">📝 문항 복기 및 정밀 해설</h3>
+    <div class="review-container" id="reviewContainer"></div>
+    
+    <button class="big-btn" onclick="location.reload()">다시 응시하기</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
